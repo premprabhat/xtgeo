@@ -12,6 +12,8 @@ jobs:
         os:
           - runs_on: ubuntu-latest
             cibw_image: manylinux_x86_64
+          - runs_on: ubuntu-latest
+            cibw_image: manylinux_aarch64
     env:
       CIBW_ARCHS_LINUX: x86_64 aarch64
       CIBW_MANYLINUX_X86_64_IMAGE: manylinux2010
