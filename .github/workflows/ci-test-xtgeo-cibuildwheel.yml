@@ -18,6 +18,7 @@ jobs:
             cibw_image: macosx_x86_64
 
     env:
+      CIBW_ARCHS_LINUX: x86_64 aarch64
       CIBW_MANYLINUX_X86_64_IMAGE: manylinux2010
       # pillow < 8.4 required for CIBW build
       #CIBW_MANYLINUX_AARCH64_IMAGE: manylinux2014
@@ -39,6 +40,10 @@ jobs:
           fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@v2
+
+      - name: Set up QEMU
+        id: qemu
+        uses: docker/setup-qemu-action@v1
 
       - name: Install cibuildwheel
         run: >
